@@ -38,10 +38,12 @@ class Vec3 {
 			return Vec3(Vx, Vy, Vz);
 		}
 
-		friend Vec3 operator*(const Vec3& a, const Vec3& b) {
-			float Vx = a.x * b.x;
-			float Vy = a.y * b.y;
-			float Vz = a.z * b.z;
+		friend Vec3 operator*(const Vec3& a, Mat3& b) {  //백터 행렬 계산 하는거 수정필요
+			
+			float Vx = 0;
+			float Vy = 0;
+			float Vz = 0;
+
 
 			return Vec3(Vx, Vy, Vz);
 		}
@@ -150,5 +152,40 @@ class Mat3 {
 			}
 		}
 
+		void Show_SinCos() {
+			for (int i = 0; i < Mat3_Max; i++) {
+				for (int j = 0; j < Mat3_Max; j++) {
+					printf("%lf  ", m[i][j]);
+					/*std::cout << m[i][j] << " ";*/
+				}
+				std::cout << std::endl;
+			}
+		}
+
 };
 
+Mat3 Translate(float a, float b) {
+	Mat3 Translate(1,0,0,0,1,0,a,b,1);
+	Translate.Transpose();
+
+
+	return Translate;
+}
+
+Mat3 Rotation(float a) {
+	const float PI = 3.1415926;
+	Mat3 Rotation(sin(a * PI/180), cos(a * PI / 180), 0, -cos(a * PI / 180), sin(a * PI / 180), 0, 0, 0, 1);
+	Rotation.Transpose();
+
+
+	return Rotation;
+}
+
+
+Mat3 Scale(float a) {
+	Mat3 Scale(a, 0, 0, 0, a, 0, 0, 0, 1);
+	Scale.Transpose();
+
+
+	return Scale;
+}
