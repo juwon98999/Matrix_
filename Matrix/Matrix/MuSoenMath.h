@@ -4,6 +4,8 @@
 #pragma once
 #define Mat3_Max 3
 
+using namespace std;
+
 class Vec3 {
 	public:
 		float x;
@@ -38,26 +40,25 @@ class Vec3 {
 			return Vec3(Vx, Vy, Vz);
 		}
 
-		friend Vec3 operator*(const Vec3& a, Mat3& b) {  //백터 행렬 계산 하는거 수정필요
-			
-			float Vx = 0;
-			float Vy = 0;
-			float Vz = 0;
+		//friend Vec3 operator*(const Vec3& a, const Mat3& b) { 
+		//	float Vx = (a.x * b.m[0][0]) + (a.y * b.m[0][1]) + (a.y * b.m[0][2]);
+		//	float Vy = (a.x * b.m[1][0]) + (a.y * b.m[1][1]) + (a.y * b.m[1][2]);
+		//	float Vz = (a.x * b.m[2][0]) + (a.y * b.m[2][1]) + (a.y * b.m[2][2]);
 
 
-			return Vec3(Vx, Vy, Vz);
-		}
+		//	return Vec3(Vx, Vy, Vz);
+		//}
 
 };
+
 
 
 class Mat3 {
 
 	int row; int col;
 
-	private:
-		float m[3][3];		// 3 x 3 Matrix
 	public:
+		float m[3][3];		// 3 x 3 Matrix
 
 		Mat3(float a = 0, float b = 0, float c = 0, float d = 0, float e = 0, float f = 0, float g = 0, float h = 0, float i = 0) {
 			m[0][0] = a;
@@ -116,7 +117,7 @@ class Mat3 {
 			return minus_Mat;
 		}
 
-		Mat3 operator*(const Mat3& a) {				//Matrix 곱셉 연산 수정완료 // 개수에 맞게 계산횟수 변경되도록 수정 필요
+		Mat3 operator*(const Mat3& a) {				//Matrix 곱셉
 			Mat3 multiple_Mat;
 			multiple_Mat.row = a.row;
 			multiple_Mat.col = multiple_Mat.col;
@@ -130,16 +131,6 @@ class Mat3 {
 			}
 
 			return multiple_Mat;
-		}
-
-		void operator=(const Mat3& a) {
-			Mat3 equal_Mat;
-
-			for (int i = 0; i < Mat3_Max; i++) {
-				for (int j = 0; j < Mat3_Max; j++) {
-					equal_Mat.m[i][j] = a.m[i][j];
-				}
-			}
 		}
 
 

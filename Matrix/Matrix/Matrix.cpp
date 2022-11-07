@@ -4,16 +4,9 @@
 using namespace std;
 
 int main() {
-	/*Vec3 test(2, 3, 1);
-	cout << test.x << endl;
-	cout << test.y << endl;
-	cout << test.z << endl;
-	Vec3 test2(1, 1, 1);
-
-	Vec3 add = test * test2;
-	cout << add.x << endl;
-	cout << add.y << endl;
-	cout << add.z << endl;*/
+	Vec3 v(2, 3, 1);
+	cout << "입력한 Vec값 출력"<< endl;
+	cout << v.x << " " << v.y << " " << v.z << endl;
 
 	cout << endl;
 
