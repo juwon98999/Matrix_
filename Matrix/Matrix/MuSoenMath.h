@@ -3,11 +3,16 @@
 
 #pragma once
 #define Mat3_Max 3
+#define Mat4_Max 4
+
 
 using namespace std;
 
+//inline Vec3 operator * (const Vec3& a, const Mat3& b);
+
 class Vec3 {
 	public:
+
 		float x;
 		float y;
 		float z;
@@ -24,33 +29,114 @@ class Vec3 {
 			z = _z;
 		}
 
-		friend Vec3 operator+(const Vec3& a, const Vec3& b) {
-			float Vx = a.x + b.x;
-			float Vy = a.y + b.y;
-			float Vz = a.z + b.z;
+		~Vec3() {
 
-			return Vec3(Vx, Vy, Vz);
 		}
 
-		friend Vec3 operator-(const Vec3& a, const Vec3& b) {
-			float Vx = a.x - b.x;
-			float Vy = a.y - b.y;
-			float Vz = a.z - b.z;
+		Vec3 operator+(const Vec3& a) {				//Vector 더하기
+			Vec3 plus_Vec;
 
-			return Vec3(Vx, Vy, Vz);
+			plus_Vec.x = x + a.x;
+			plus_Vec.y = y + a.y;
+			plus_Vec.z = z + a.z;
+
+			return plus_Vec;
 		}
 
-		//friend Vec3 operator*(const Vec3& a, const Mat3& b) { 
-		//	float Vx = (a.x * b.m[0][0]) + (a.y * b.m[0][1]) + (a.y * b.m[0][2]);
-		//	float Vy = (a.x * b.m[1][0]) + (a.y * b.m[1][1]) + (a.y * b.m[1][2]);
-		//	float Vz = (a.x * b.m[2][0]) + (a.y * b.m[2][1]) + (a.y * b.m[2][2]);
+		Vec3 operator-(const Vec3& a) {				//Vector 빼기
+			Vec3 Minus_Vec;
+
+			Minus_Vec.x = x - a.x;
+			Minus_Vec.y = y - a.y;
+			Minus_Vec.z = z - a.z;
+
+			return Minus_Vec;
+		}
+
+		Vec3 operator*(const Vec3& a) {				//Vector 곱하기
+			Vec3 multiple_Vec;
+
+			multiple_Vec.x = x * a.x;
+			multiple_Vec.y = y * a.y;
+			multiple_Vec.z = z * a.z;
+
+			return multiple_Vec;
+		}
+
+		
 
 
-		//	return Vec3(Vx, Vy, Vz);
-		//}
 
 };
 
+
+
+class Vec4 {
+	public:
+
+		float x;
+		float y;
+		float z;
+		float w;
+
+		Vec4() {
+			x = 0;
+			y = 0;
+			z = 0;
+			w = 0;
+		}
+
+		Vec4(float _x, float _y, float _z, float _w) {
+			x = _x;
+			y = _y;
+			z = _z;
+			w = _w;
+		}
+
+		~Vec4() {
+
+		}
+
+		Vec4 operator+(const Vec3& a) {				//Vector 더하기
+			Vec4 plus_Vec;
+
+			plus_Vec.x = x + a.x;
+			plus_Vec.y = y + a.y;
+			plus_Vec.z = z + a.z;
+
+			return plus_Vec;
+		}
+
+		Vec4 operator-(const Vec4& a) {				//Vector 빼기
+			Vec4 Minus_Vec;
+
+			Minus_Vec.x = x - a.x;
+			Minus_Vec.y = y - a.y;
+			Minus_Vec.z = z - a.z;
+
+			return Minus_Vec;
+		}
+
+		Vec4 operator*(const Vec4& a) {				//Vector 곱하기
+			Vec4 multiple_Vec;
+
+			multiple_Vec.x = x * a.x;
+			multiple_Vec.y = y * a.y;
+			multiple_Vec.z = z * a.z;
+
+			return multiple_Vec;
+		}
+
+		//Vec4 Multiply(const Mat4& b) {				//Vec3 * Mat4
+		//	Vec4 Mulitply_Vec;
+		//	Mulitply_Vec.x = (x * b.m4[0][0]) + (y * b.m4[0][1]) + (z * b.m4[0][2]) + (w * b.m4[0][3]);
+		//	Mulitply_Vec.y = (x * b.m4[1][0]) + (y * b.m4[1][1]) + (z * b.m4[1][2]) + (w * b.m4[1][3]);;
+		//	Mulitply_Vec.z = (x * b.m4[2][0]) + (y * b.m4[2][1]) + (z * b.m4[2][2]) + (w * b.m4[2][3]);;
+		//	Mulitply_Vec.w = (x * b.m4[3][0]) + (y * b.m4[3][1]) + (z * b.m4[3][2]) + (w * b.m4[3][3]);;
+
+		//	return Mulitply_Vec;
+		//}
+};
 
 
 class Mat3 {
@@ -58,18 +144,18 @@ class Mat3 {
 	int row; int col;
 
 	public:
-		float m[3][3];		// 3 x 3 Matrix
+		float m3[3][3];		// 3 x 3 Matrix
 
 		Mat3(float a = 0, float b = 0, float c = 0, float d = 0, float e = 0, float f = 0, float g = 0, float h = 0, float i = 0) {
-			m[0][0] = a;
-			m[0][1] = b;
-			m[0][2] = c;
-			m[1][0] = d;
-			m[1][1] = e;
-			m[1][2] = f;
-			m[2][0] = g;
-			m[2][1] = h;
-			m[2][2] = i;
+			m3[0][0] = a;
+			m3[0][1] = b;
+			m3[0][2] = c;
+			m3[1][0] = d;
+			m3[1][1] = e;
+			m3[1][2] = f;
+			m3[2][0] = g;
+			m3[2][1] = h;
+			m3[2][2] = i;
 		}
 
 		~Mat3() {
@@ -80,15 +166,23 @@ class Mat3 {
 			Mat3 inputMat;
 			for (int i = 0; i < Mat3_Max; i++) {		//매트릭스 생성
 				for (int j = 0; j < Mat3_Max; j++) {
-					inputMat.m[i][j] = m[i][j];
+					inputMat.m3[i][j] = m3[i][j];
 				}
 			}
 
 			for (int i = 0; i < Mat3_Max; i++) {		//전치 행렬 변환
 				for (int j = 0; j < Mat3_Max; j++) {
-					m[j][i] = inputMat.m[i][j];
+					m3[j][i] = inputMat.m3[i][j];
 				}
 			}
+
+			return *this;
+		}
+
+		Mat3 Identity() {
+			m3[0][0] = 1.0f; m3[0][1] = 0.0f; m3[0][2] = 0.0f;
+			m3[1][0] = 0.0f; m3[1][1] = 1.0f; m3[1][2] = 0.0f;
+			m3[2][0] = 0.0f; m3[2][1] = 0.0f; m3[2][2] = 1.0f;
 
 			return *this;
 		}
@@ -98,7 +192,7 @@ class Mat3 {
 
 			for (int i = 0; i < Mat3_Max; i++) {
 				for (int j = 0; j < Mat3_Max; j++) {
-					plus_Mat.m[i][j] = m[i][j] + a.m[i][j];
+					plus_Mat.m3[i][j] = m3[i][j] + a.m3[i][j];
 				}
 			}
 
@@ -110,7 +204,7 @@ class Mat3 {
 
 			for (int i = 0; i < Mat3_Max; i++) {
 				for (int j = 0; j < Mat3_Max; j++) {
-					minus_Mat.m[i][j] = m[i][j] - a.m[i][j];
+					minus_Mat.m3[i][j] = m3[i][j] - a.m3[i][j];
 				}
 			}
 
@@ -125,7 +219,7 @@ class Mat3 {
 			for (int i = 0; i < Mat3_Max; i++) {
 				for (int j = 0; j < Mat3_Max; j++) {
 					for (int z = 0; z < Mat3_Max; z++) {
-						multiple_Mat.m[i][j] = (m[i][z] * a.m[z][j]) + multiple_Mat.m[i][j];
+						multiple_Mat.m3[i][j] = (m3[i][z] * a.m3[z][j]) + multiple_Mat.m3[i][j];
 					}
 				}
 			}
@@ -134,10 +228,21 @@ class Mat3 {
 		}
 
 
+		inline Mat3 operator*(const Vec3& a) {				//Vec3 * Mat3  이건되네 
+			Mat3 Mulitply_Vec;
+			/*Mulitply_Vec.x = (a.x * b.m3[0][0]) + (a.y * b.m3[0][1]) + (a.z * b.m3[0][2]);
+			Mulitply_Vec.y = (a.x * b.m3[1][0]) + (a.y * b.m3[1][1]) + (a.z * b.m3[1][2]);
+			Mulitply_Vec.z = (a.x * b.m3[2][0]) + (a.y * b.m3[2][1]) + (a.z * b.m3[2][2]);*/
+			Mulitply_Vec.m3[0][0] = a.x;
+
+			return (Mulitply_Vec);
+		}
+
+
 		void ShowMat3() {
 			for (int i = 0; i < Mat3_Max; i++) {
 				for (int j = 0; j < Mat3_Max; j++) {
-					std::cout << m[i][j] << " ";
+					std::cout << m3[i][j] << " ";
 				}
 				std::cout << std::endl;
 			}
@@ -146,26 +251,29 @@ class Mat3 {
 		void Show_SinCos() {
 			for (int i = 0; i < Mat3_Max; i++) {
 				for (int j = 0; j < Mat3_Max; j++) {
-					printf("%lf  ", m[i][j]);
+					printf("%lf  ", m3[i][j]);
 					/*std::cout << m[i][j] << " ";*/
 				}
 				std::cout << std::endl;
 			}
 		}
 
+
 };
 
-Mat3 Translate(float a, float b) {
-	Mat3 Translate(1,0,0,0,1,0,a,b,1);
+Mat3 Mat3_Translate(float a, float b) {
+	Mat3 Translate( 1, 0, a,
+					0, 1, b,
+					0, 0, 1);
 	Translate.Transpose();
 
 
 	return Translate;
 }
 
-Mat3 Rotation(float a) {
+Mat3 Mat3_Rotation(float a) {
 	const float PI = 3.1415926;
-	Mat3 Rotation(sin(a * PI/180), cos(a * PI / 180), 0, -cos(a * PI / 180), sin(a * PI / 180), 0, 0, 0, 1);
+	Mat3 Rotation(sin(a * PI / 180), cos(a * PI / 180), 0, -cos(a * PI / 180), sin(a * PI / 180), 0, 0, 0, 1);
 	Rotation.Transpose();
 
 
@@ -173,10 +281,181 @@ Mat3 Rotation(float a) {
 }
 
 
-Mat3 Scale(float a) {
-	Mat3 Scale(a, 0, 0, 0, a, 0, 0, 0, 1);
+Mat3 Mat3_Scale(float a) {
+	Mat3 Scale( a, 0, 0,
+				0, a, 0,
+				0, 0, 1);
 	Scale.Transpose();
 
 
 	return Scale;
 }
+
+
+
+class Mat4 {		//mat3에서 변경된 부분이 많아 전체적으로 수정할 것
+
+	int row; int col;
+
+public:
+	float m4[4][4];		// 4 x 4 Matrix
+
+	Mat4(float a = 0, float b = 0, float c = 0, float d = 0, float e = 0, float f = 0, float g = 0, float h = 0, float i = 0,
+		float j = 0, float k = 0, float l = 0, float m = 0, float n = 0, float o = 0, float p = 0) {
+		m4[0][0] = a;
+		m4[0][1] = b;
+		m4[0][2] = c;
+		m4[0][3] = d;
+		m4[1][0] = e;
+		m4[1][1] = f;
+		m4[1][2] = g;
+		m4[1][3] = h;
+		m4[2][0] = i;
+		m4[2][1] = j;
+		m4[2][2] = k;
+		m4[2][3] = l;
+		m4[3][0] = m;
+		m4[3][1] = n;
+		m4[3][2] = o;
+		m4[3][3] = p;
+	}
+
+	~Mat4() {
+
+	}
+
+	Mat4 Transpose() {
+		Mat4 inputMat;
+		for (int i = 0; i < Mat4_Max; i++) {		//매트릭스 생성
+			for (int j = 0; j < Mat4_Max; j++) {
+				inputMat.m4[i][j] = m4[i][j];
+			}
+		}
+
+		for (int i = 0; i < Mat4_Max; i++) {		//전치 행렬 변환
+			for (int j = 0; j < Mat4_Max; j++) {
+				m4[j][i] = inputMat.m4[i][j];
+			}
+		}
+
+		return *this;
+	}
+
+	Mat4 Identity() {
+		m4[0][0] = 1.0f; m4[0][1] = 0.0f; m4[0][2] = 0.0f; m4[0][3] = 0.0f;
+		m4[1][0] = 0.0f; m4[1][1] = 1.0f; m4[1][2] = 0.0f; m4[1][3] = 0.0f;
+		m4[2][0] = 0.0f; m4[2][1] = 0.0f; m4[2][2] = 1.0f; m4[2][3] = 0.0f;
+		m4[3][0] = 0.0f; m4[3][1] = 0.0f; m4[3][2] = 0.0f; m4[3][3] = 1.0f;
+
+		return *this;
+	}
+
+	Mat4 operator+(const Mat4& a) {				//Matrix 더하기
+		Mat4 plus_Mat;
+
+		for (int i = 0; i < Mat4_Max; i++) {
+			for (int j = 0; j < Mat4_Max; j++) {
+				plus_Mat.m4[i][j] = m4[i][j] + a.m4[i][j];
+			}
+		}
+
+		return plus_Mat;
+	}
+
+	Mat4 operator-(const Mat4& a) {				//Matrix 빼기
+		Mat4 minus_Mat;
+
+		for (int i = 0; i < Mat4_Max; i++) {
+			for (int j = 0; j < Mat4_Max; j++) {
+				minus_Mat.m4[i][j] = m4[i][j] - a.m4[i][j];
+			}
+		}
+
+		return minus_Mat;
+	}
+
+	Mat4 operator*(const Mat4& a) {				//Matrix 곱셉
+		Mat4 multiple_Mat;
+
+		for (int i = 0; i < Mat4_Max; i++) {
+			for (int j = 0; j < Mat4_Max; j++) {
+				for (int z = 0; z < Mat4_Max; z++) {
+					multiple_Mat.m4[i][j] = (m4[i][z] * a.m4[z][j]) + multiple_Mat.m4[i][j];
+				}
+			}
+		}
+
+		return multiple_Mat;
+	}
+
+	Mat4 Multiply(const Mat4 &m4, const Vec3 &v3) {
+		Mat4 multiple_Mat;
+
+
+		return multiple_Mat;
+	}
+
+	Mat4 Multiply(const Mat4& m4, const Mat3& m3) {
+		Mat4 multiple_Mat;
+
+
+		return multiple_Mat;
+	}
+
+
+
+	void ShowMat4() {
+		for (int i = 0; i < Mat4_Max; i++) {
+			for (int j = 0; j < Mat4_Max; j++) {
+				std::cout << m4[i][j] << " ";
+			}
+			std::cout << std::endl;
+		}
+	}
+
+	void Show_SinCos() {
+		for (int i = 0; i < Mat4_Max; i++) {
+			for (int j = 0; j < Mat4_Max; j++) {
+				printf("%lf  ", m4[i][j]);
+				/*std::cout << m[i][j] << " ";*/
+			}
+			std::cout << std::endl;
+		}
+	}
+
+};
+
+Mat4 Mat4_Translate(float a, float b, float c) {
+	Mat4 Translate( 1, 0, 0, a,
+					0, 1, 0, b,
+					0, 0, 1, c,
+					0, 0, 0, 1);
+	Translate.Transpose();
+
+
+	return Translate;
+}
+
+Mat4 Mat4_Rotation(float a) {  //Rotation 부분 수정 필요
+	const float PI = 3.1415926;
+	Mat4 Rotation(sin(a * PI / 180), cos(a * PI / 180), 0, -cos(a * PI / 180), sin(a * PI / 180), 0, 0, 0, 1);
+	Rotation.Transpose();
+
+
+	return Rotation;
+}
+
+
+Mat4 Mat4_Scale(float a) {
+	Mat4 Scale( a, 0, 0, 0,
+				0, a, 0, 0,
+				0, 0, a, 0,
+				0, 0, 0, 1);
+
+	Scale.Transpose();
+
+
+	return Scale;
+}
+
+
