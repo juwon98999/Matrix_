@@ -1,4 +1,4 @@
 ﻿  Matrix.cpp
-C:\Users\juwon\Desktop\Matrix\Matrix_\Matrix\Matrix\MuSoenMath.h(275,28): warning C4305: '초기화 중': 'double'에서 'float'(으)로 잘립니다.
-C:\Users\juwon\Desktop\Matrix\Matrix_\Matrix\Matrix\MuSoenMath.h(440,28): warning C4305: '초기화 중': 'double'에서 'float'(으)로 잘립니다.
+C:\Users\juwon\Desktop\Matrix\Matrix_\Matrix\Matrix\MuSoenMath.h(273,28): warning C4305: '초기화 중': 'double'에서 'float'(으)로 잘립니다.
+C:\Users\juwon\Desktop\Matrix\Matrix_\Matrix\Matrix\MuSoenMath.h(449,28): warning C4305: '초기화 중': 'double'에서 'float'(으)로 잘립니다.
   Matrix.vcxproj -> C:\Users\juwon\Desktop\Matrix\Matrix_\Matrix\x64\Debug\Matrix.exe

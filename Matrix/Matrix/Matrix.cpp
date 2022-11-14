@@ -17,6 +17,12 @@ int main() {
 
 	cout << endl;
 
+	cout << "Mat3 * Vec3 연산 행렬" << endl;
+	Mat3 Mat3_Vec3 = mat3 * v;
+	Mat3_Vec3.ShowMat3();
+
+	cout << endl;
+
 	cout << "Mat3_Translate 행렬"  << endl;
 	Mat3 Mat3_trans = Mat3_Translate(3,5);
 	Mat3_trans.ShowMat3();
@@ -37,6 +43,14 @@ int main() {
 	cout << "Mat3_Identity 행렬" << endl;
 	mat3.Identity();
 	mat3.ShowMat3();
+
+	cout << endl;
+
+	Vec4 v4(2, 3, 4, 1);
+	cout << "입력한 Vec값 출력" << endl;
+	cout << v4.x << " " << v4.y << " " << v4.z << " " << v4.w << endl;
+
+	cout << endl;
 
 	cout << endl;
 	cout << "행렬 입력 4 x 4" << endl;
@@ -70,7 +84,11 @@ int main() {
 
 	cout << endl;
 
+	cout << "Mat4_Vec4 연산 행렬" << endl;
+	Mat4 Mat4_Vec4 = mat4 * v4;
+	Mat4_Vec4.ShowMat4();
 
+	cout << endl;
 
 	return 0;
 }

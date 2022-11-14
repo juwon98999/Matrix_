@@ -8,8 +8,6 @@
 
 using namespace std;
 
-//inline Vec3 operator * (const Vec3& a, const Mat3& b);
-
 class Vec3 {
 	public:
 
@@ -33,7 +31,7 @@ class Vec3 {
 
 		}
 
-		Vec3 operator+(const Vec3& a) {				//Vector 더하기
+		Vec3 operator+(const Vec3& a) {				//Vector3 더하기
 			Vec3 plus_Vec;
 
 			plus_Vec.x = x + a.x;
@@ -43,7 +41,7 @@ class Vec3 {
 			return plus_Vec;
 		}
 
-		Vec3 operator-(const Vec3& a) {				//Vector 빼기
+		Vec3 operator-(const Vec3& a) {				//Vector3 빼기
 			Vec3 Minus_Vec;
 
 			Minus_Vec.x = x - a.x;
@@ -53,7 +51,7 @@ class Vec3 {
 			return Minus_Vec;
 		}
 
-		Vec3 operator*(const Vec3& a) {				//Vector 곱하기
+		Vec3 operator*(const Vec3& a) {				//Vector3 곱하기
 			Vec3 multiple_Vec;
 
 			multiple_Vec.x = x * a.x;
@@ -97,7 +95,7 @@ class Vec4 {
 
 		}
 
-		Vec4 operator+(const Vec3& a) {				//Vector 더하기
+		Vec4 operator+(const Vec3& a) {				//Vector4 더하기
 			Vec4 plus_Vec;
 
 			plus_Vec.x = x + a.x;
@@ -107,7 +105,7 @@ class Vec4 {
 			return plus_Vec;
 		}
 
-		Vec4 operator-(const Vec4& a) {				//Vector 빼기
+		Vec4 operator-(const Vec4& a) {				//Vector4 빼기
 			Vec4 Minus_Vec;
 
 			Minus_Vec.x = x - a.x;
@@ -117,7 +115,7 @@ class Vec4 {
 			return Minus_Vec;
 		}
 
-		Vec4 operator*(const Vec4& a) {				//Vector 곱하기
+		Vec4 operator*(const Vec4& a) {				//Vector4 곱하기
 			Vec4 multiple_Vec;
 
 			multiple_Vec.x = x * a.x;
@@ -164,13 +162,13 @@ class Mat3 {
 	
 		Mat3 Transpose() {
 			Mat3 inputMat;
-			for (int i = 0; i < Mat3_Max; i++) {		//매트릭스 생성
+			for (int i = 0; i < Mat3_Max; i++) {		//Mat3 매트릭스 생성
 				for (int j = 0; j < Mat3_Max; j++) {
 					inputMat.m3[i][j] = m3[i][j];
 				}
 			}
 
-			for (int i = 0; i < Mat3_Max; i++) {		//전치 행렬 변환
+			for (int i = 0; i < Mat3_Max; i++) {		//Mat3 전치 행렬 변환
 				for (int j = 0; j < Mat3_Max; j++) {
 					m3[j][i] = inputMat.m3[i][j];
 				}
@@ -187,7 +185,7 @@ class Mat3 {
 			return *this;
 		}
 
-		Mat3 operator+(const Mat3 &a) {				//Matrix 더하기
+		Mat3 operator+(const Mat3 &a) {				//Matrix3 더하기
 			Mat3 plus_Mat;
 
 			for (int i = 0; i < Mat3_Max; i++) {
@@ -199,7 +197,7 @@ class Mat3 {
 			return plus_Mat;
 		}
 
-		Mat3 operator-(const Mat3& a) {				//Matrix 빼기
+		Mat3 operator-(const Mat3& a) {				//Matrix3 빼기
 			Mat3 minus_Mat;
 
 			for (int i = 0; i < Mat3_Max; i++) {
@@ -211,7 +209,7 @@ class Mat3 {
 			return minus_Mat;
 		}
 
-		Mat3 operator*(const Mat3& a) {				//Matrix 곱셉
+		Mat3 operator*(const Mat3& a) {				//Matrix3 곱셉
 			Mat3 multiple_Mat;
 			multiple_Mat.row = a.row;
 			multiple_Mat.col = multiple_Mat.col;
@@ -228,13 +226,13 @@ class Mat3 {
 		}
 
 
-		inline Mat3 operator*(const Vec3& a) {				//Vec3 * Mat3  이건되네 
+		inline Mat3 operator*(const Vec3& a) {				//Vec3 * Mat3
 			Mat3 Mulitply_Vec;
-			/*Mulitply_Vec.x = (a.x * b.m3[0][0]) + (a.y * b.m3[0][1]) + (a.z * b.m3[0][2]);
-			Mulitply_Vec.y = (a.x * b.m3[1][0]) + (a.y * b.m3[1][1]) + (a.z * b.m3[1][2]);
-			Mulitply_Vec.z = (a.x * b.m3[2][0]) + (a.y * b.m3[2][1]) + (a.z * b.m3[2][2]);*/
-			Mulitply_Vec.m3[0][0] = a.x;
 
+			Mulitply_Vec.m3[0][0] = m3[2][2]; Mulitply_Vec.m3[0][1] = 0; Mulitply_Vec.m3[0][2] = (a.x * m3[0][0]) + (a.y * m3[0][1]) + (a.z * m3[0][2]);
+			Mulitply_Vec.m3[1][0] = 0; Mulitply_Vec.m3[1][1] = m3[2][2]; Mulitply_Vec.m3[1][2] = (a.x * m3[1][0]) + (a.y * m3[1][1]) + (a.z * m3[1][2]);
+			Mulitply_Vec.m3[2][0] = 0; Mulitply_Vec.m3[2][1] = 0; Mulitply_Vec.m3[2][2] = m3[2][2];
+			
 			return (Mulitply_Vec);
 		}
 
@@ -252,7 +250,6 @@ class Mat3 {
 			for (int i = 0; i < Mat3_Max; i++) {
 				for (int j = 0; j < Mat3_Max; j++) {
 					printf("%lf  ", m3[i][j]);
-					/*std::cout << m[i][j] << " ";*/
 				}
 				std::cout << std::endl;
 			}
@@ -293,7 +290,7 @@ Mat3 Mat3_Scale(float a) {
 
 
 
-class Mat4 {		//mat3에서 변경된 부분이 많아 전체적으로 수정할 것
+class Mat4 {		//수정완료
 
 	int row; int col;
 
@@ -326,13 +323,13 @@ public:
 
 	Mat4 Transpose() {
 		Mat4 inputMat;
-		for (int i = 0; i < Mat4_Max; i++) {		//매트릭스 생성
+		for (int i = 0; i < Mat4_Max; i++) {		//Mat4 매트릭스 생성
 			for (int j = 0; j < Mat4_Max; j++) {
 				inputMat.m4[i][j] = m4[i][j];
 			}
 		}
 
-		for (int i = 0; i < Mat4_Max; i++) {		//전치 행렬 변환
+		for (int i = 0; i < Mat4_Max; i++) {		//Mat4 전치 행렬 변환
 			for (int j = 0; j < Mat4_Max; j++) {
 				m4[j][i] = inputMat.m4[i][j];
 			}
@@ -350,7 +347,7 @@ public:
 		return *this;
 	}
 
-	Mat4 operator+(const Mat4& a) {				//Matrix 더하기
+	Mat4 operator+(const Mat4& a) {				//Matrix4 더하기
 		Mat4 plus_Mat;
 
 		for (int i = 0; i < Mat4_Max; i++) {
@@ -362,7 +359,7 @@ public:
 		return plus_Mat;
 	}
 
-	Mat4 operator-(const Mat4& a) {				//Matrix 빼기
+	Mat4 operator-(const Mat4& a) {				//Matrix4 빼기
 		Mat4 minus_Mat;
 
 		for (int i = 0; i < Mat4_Max; i++) {
@@ -374,7 +371,7 @@ public:
 		return minus_Mat;
 	}
 
-	Mat4 operator*(const Mat4& a) {				//Matrix 곱셉
+	Mat4 operator*(const Mat4& a) {				//Matrix4 곱셉
 		Mat4 multiple_Mat;
 
 		for (int i = 0; i < Mat4_Max; i++) {
@@ -386,6 +383,17 @@ public:
 		}
 
 		return multiple_Mat;
+	}
+
+	inline Mat4 operator*(const Vec4& a) {				//Vec4 * Mat4  
+		Mat4 Mulitply_Vec;
+
+		Mulitply_Vec.m4[0][0] = m4[3][3]; Mulitply_Vec.m4[0][1] = 0; Mulitply_Vec.m4[0][2] = 0; Mulitply_Vec.m4[0][3] = (a.x * m4[0][0]) + (a.y * m4[0][1]) + (a.z * m4[0][2]) + (a.w * m4[0][3]);
+		Mulitply_Vec.m4[1][0] = 0; Mulitply_Vec.m4[1][1] = m4[3][3]; Mulitply_Vec.m4[0][2] = 0; Mulitply_Vec.m4[1][3] = (a.x * m4[1][0]) + (a.y * m4[1][1]) + (a.z * m4[1][2]) + (a.w * m4[0][3]);
+		Mulitply_Vec.m4[2][0] = 0; Mulitply_Vec.m4[2][1] = 0; Mulitply_Vec.m4[2][2] = m4[3][3]; Mulitply_Vec.m4[2][3] = (a.x * m4[1][0]) + (a.y * m4[1][1]) + (a.z * m4[1][2]) + (a.w * m4[0][3]);
+		Mulitply_Vec.m4[3][0] = 0; Mulitply_Vec.m4[3][1] = 0; Mulitply_Vec.m4[3][2] = 0; Mulitply_Vec.m4[3][3] = m4[3][3];
+
+		return (Mulitply_Vec);
 	}
 
 	Mat4 Multiply(const Mat4 &m4, const Vec3 &v3) {
