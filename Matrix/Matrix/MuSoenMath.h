@@ -154,6 +154,7 @@ class Mat3 {
 			m3[2][0] = g;
 			m3[2][1] = h;
 			m3[2][2] = i;
+
 		}
 
 		~Mat3() {
@@ -466,4 +467,11 @@ Mat4 Mat4_Scale(float a) {
 	return Scale;
 }
 
+Vec3 Trans_Mat3(Mat3 mat) {
+	Vec3 vec3;
+	vec3.x = mat.m3[0][2];
+	vec3.y = mat.m3[1][2];
+	vec3.z = mat.m3[2][2];
 
+	return vec3;
+}

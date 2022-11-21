@@ -1,4 +1,20 @@
-﻿  Matrix.cpp
+﻿  GlmTest.cpp
 C:\Users\juwon\Desktop\Matrix\Matrix_\Matrix\Matrix\MuSoenMath.h(273,28): warning C4305: '초기화 중': 'double'에서 'float'(으)로 잘립니다.
 C:\Users\juwon\Desktop\Matrix\Matrix_\Matrix\Matrix\MuSoenMath.h(449,28): warning C4305: '초기화 중': 'double'에서 'float'(으)로 잘립니다.
+C:\Users\juwon\Desktop\Matrix\Matrix_\Matrix\Matrix\GlmTest.cpp(96,50): warning C4244: '=': 'double'에서 'float'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+C:\Users\juwon\Desktop\Matrix\Matrix_\Matrix\Matrix\GlmTest.cpp(97,49): warning C4244: '=': 'double'에서 'float'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+C:\Users\juwon\Desktop\Matrix\Matrix_\Matrix\Matrix\GlmTest.cpp(114,63): warning C4244: '=': 'double'에서 'float'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+C:\Users\juwon\Desktop\Matrix\Matrix_\Matrix\Matrix\GlmTest.cpp(115,62): warning C4244: '=': 'double'에서 'float'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+C:\Users\juwon\Desktop\Matrix\Matrix_\Matrix\Matrix\GlmTest.cpp(137,36): warning C4244: '인수': 'double'에서 'float'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+C:\Users\juwon\Desktop\Matrix\Matrix_\Matrix\Matrix\GlmTest.cpp(137,12): warning C4244: '인수': 'double'에서 'float'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+C:\Users\juwon\Desktop\Matrix\Matrix_\Matrix\Matrix\GlmTest.cpp(136,31): warning C4244: '인수': 'double'에서 'float'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+C:\Users\juwon\Desktop\Matrix\Matrix_\Matrix\Matrix\GlmTest.cpp(136,12): warning C4244: '인수': 'double'에서 'float'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+C:\Users\juwon\Desktop\Matrix\Matrix_\Matrix\Matrix\GlmTest.cpp(167,9): warning C4305: '인수': 'double'에서 'float'(으)로 잘립니다.
+C:\Users\juwon\Desktop\Matrix\Matrix_\Matrix\Matrix\GlmTest.cpp(171,28): warning C4244: '인수': 'double'에서 'float'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+C:\Users\juwon\Desktop\Matrix\Matrix_\Matrix\Matrix\GlmTest.cpp(171,16): warning C4244: '인수': 'double'에서 'float'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+C:\Users\juwon\Desktop\Matrix\Matrix_\Matrix\Matrix\GlmTest.cpp(170,25): warning C4244: '인수': 'double'에서 'float'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+C:\Users\juwon\Desktop\Matrix\Matrix_\Matrix\Matrix\GlmTest.cpp(170,16): warning C4244: '인수': 'double'에서 'float'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+C:\Users\juwon\Desktop\Matrix\Matrix_\Matrix\Matrix\GlmTest.cpp(255,19): warning C4244: '초기화 중': 'double'에서 'float'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+  소스.cpp
+  코드를 생성하고 있습니다...
   Matrix.vcxproj -> C:\Users\juwon\Desktop\Matrix\Matrix_\Matrix\x64\Debug\Matrix.exe
